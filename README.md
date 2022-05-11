@@ -30,16 +30,11 @@ Example environment file
 
 ```
 NODE_ENV=dev
-APP_NAME=api-tickets-service
-PORT=3002
-DB_USER=root
-DB_PASS=root
-DB_NAME=tickets
-DB_HOST=localhost
-DB_PORT=3306
-DB_DIALECT=mysql
-DB_TIMEZONE=false
-DB_LOGGING=true
+APP_NAME=bff-tickets-service
+PORT=3000
+API_AUTHENTICATION=http://localhost:3001/api/v1
+API_TICKETS=http://localhost:3002/api/v1
+SECRET=sd12532fb784c48129675fb27168c0ea744b2cf58ee02337c5918dhsd
 ```
 
 <br>
