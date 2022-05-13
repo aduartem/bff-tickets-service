@@ -72,14 +72,15 @@ describe('UserController', () => {
       };
 
       const result = await userController.getUsersDev({}, res);
-      expect(loggerInfoSpy.args[0][0].includes('init'));
-      expect(loggerInfoSpy.args[1][0].includes('success'));
+      expect(loggerInfoSpy.args[0][0]).to.include('init');
+      expect(loggerInfoSpy.args[1][0]).to.include('success');
       expect(result).to.equals(response);
     });
 
     // eslint-disable-next-line no-undef
     it('should return a error', async () => {
       const loggerInfoSpy = sinon.spy(logger, 'info');
+      const loggerErrorSpy = sinon.spy(logger, 'error');
 
       const apiAuthenticationServiceMock = {
         getUsersDev: () => () => {
@@ -96,8 +97,8 @@ describe('UserController', () => {
       };
 
       const result = await userController.getUsersDev(null, res);
-      expect(loggerInfoSpy.args[0][0].includes('init'));
-      expect(loggerInfoSpy.args[1][0].includes('error'));
+      expect(loggerInfoSpy.args[0][0]).to.include('init');
+      expect(loggerErrorSpy.args[0][0]).to.include('error');
       expect(result).to.equals(500);
     });
   });
